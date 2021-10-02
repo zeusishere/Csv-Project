@@ -1,7 +1,10 @@
 const express= require("express");
 const router = express.Router() ;
-router.get("/" ,(req , res)=>
-{
-    res.send("it works");
-})
+const app = express();
+const fileController = require("../controllers/index") ;
+
+
+router.get("/" ,fileController.homePage) ;
+router.post("/upload",fileController.uploadFile );
+router.get("/view-file", fileController.viewFile)
 module.exports = router ;

@@ -1,0 +1,58 @@
+<main class="container">
+    <div class="row justify-content-center">
+        <div class="col col-md-8 col-lg-8 col-xl-6">
+            <h5 class="display-5 text-center mb-5">Upload a csv file</h5>
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+                <label for="file-upload" class="form-label mb-2">Select File : </label>
+                <input type="file" name="file" id="file-upload" class="form-control mb-4" accept=".csv" required >
+                <div class="text-center mb-4"><button type="submit" class=" btn btn-primary" id="upload-btn">Submit</button></div>
+            </form>
+
+        </div>
+        <hr>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col col-md-8 col-lg-8 col-xl-6">
+            <h4 class="display-5 text-center mb-5"> view an existing file</h4>
+            <div class="file-list">
+                <ul class="list-group ">
+                    <% for ( let file of files ) { %>
+                        <li class="container list-group-item">
+                            <div class="row">
+                                <div class="col">
+                                    <%=file.name %>
+                                </div>
+                                <div class="col-auto"><a class="btn btn-warning btn-small float-end" href="/view-file?fileId=<%=file.id%>">view</a></div>
+                            </div>
+                        </li>
+                        <%}%>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script>
+const uploadBtn = document.querySelector("#upload-btn") ;
+uploadBtn.addEventListener("click", function(event)
+{
+    // event.preventDefault() ;
+    
+} ) ;
+document.getElementById("file-upload").addEventListener("change", validateFile) ;
+function validateFile()
+{
+    console.log(this.files)
+    const {name:name} = this.files[0];
+    console.log(name) ;
+    let fileExt= name.split(".")[1] ;
+    console.log(fileExt)
+    if ( "csv" != fileExt )
+    {
+        alert("file type not allowed");
+        this.value = null;
+    }
+}
+
+</script>
