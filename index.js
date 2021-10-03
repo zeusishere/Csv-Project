@@ -1,6 +1,7 @@
 const express = require("express") ;
 const app = express() ;
-const port = 8000 ;
+let port =  process.env.PORT;;
+
 const expressLayout = require("express-ejs-layouts");
 const mongoose = require("./config/mongoose")
 // setup middlewares
@@ -15,9 +16,12 @@ app.set("layout  extractScripts" , true );
 app.use("/", require("./routes"))
 app.use(express.urlencoded({extended: true}))
  
+if (port == null || port == "") {
+    port = 8000;
+  }
 app.listen(port , (err)=>
 {
     if(err)
         console.log("there was an error in starting the server");
-    console.log("server is running fine ") ;
+    console.log("server is running fine ",port) ;
 })
