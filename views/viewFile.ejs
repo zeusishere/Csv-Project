@@ -1,4 +1,4 @@
-<main class="container my-5">
+<main class="container my-5 overflow-scroll">
     <div class="row justify-content-center my-5">
         <div class="col col-md-8 col-lg-8 col-xl-6">
             <label for="search-input" class="form-label mb-3">Search Table :</label>
@@ -33,6 +33,15 @@
             </table>
         </div>
     </div>
+    <footer>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item  <%=paginationObj.prevClass %>"><a class="page-link" href ="/view-file?fileId=<%=fileId%>&page=<%=pageNo-1%>">Previous</a></li>
+              <li class="page-item active"><a class="page-link " href="#"><%=pageNo%></a></li>
+              <li class="page-item  <%=paginationObj.nextClass%> "><a class="page-link" href="/view-file?fileId=<%=fileId%>&page=<%=parseInt(pageNo)+1%>">Next</a></li>
+            </ul>
+          </nav>
+    </footer>
 </main>
 <script>
     const searchInput = document.querySelector("#search-input");
