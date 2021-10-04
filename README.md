@@ -2,6 +2,7 @@
 The web app allows user to upload and view csv files on the go in a clean ui . it further improves user experience through -
 1. search all the columns and view only the relevant rows of data .
 2. it limits the the data to 100 rows per page to prevent user from getting overwhelmed .
+3. project can be visited at [here](http://3.129.148.46:8000/)
 ## folder structure
 index.js serves as our entry point,\
 ├── config \
