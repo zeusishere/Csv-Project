@@ -29,9 +29,6 @@ let storage = multer.diskStorage ({
 }) ;
 // static fns 
 fileSchema.statics.uploadedFile = multer( {storage:storage}).single("file") ;
-// var upload = multer ({
-//     storage:storage
-// })
 fileSchema.statics.filePath = FILE_PATH ; 
 const Files = mongoose.model("Files",fileSchema);
 
