@@ -29,6 +29,7 @@ index.js serves as our entry point,\
 1. Node 8
 2. Git
 3. MongoDB
+4. csv-parser
 ## steps to setup project on your machine 
 1. clone the repository
 ```
